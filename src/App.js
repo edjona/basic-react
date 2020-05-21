@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import FormSample from './Form';
+import Listing from './Listing';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  constructor(prop) {
+    super(prop);
+    this.state = {
+      user: [
+        { name: 'Jonathan', phone: '123' },
+      ],
+    };
+  }
+
+    handleSubmit = (name, phone) => {
+      const { user } = this.state;
+      const data = { name, phone };
+      user.push(data);
+      this.setState({ user });
+    };
+
+    render() {
+      const { user } = this.state;
+      return (
+        <>
+          <FormSample handleSubmit={this.handleSubmit} />
+          <Listing users={user} />
+        </>
+      );
+    }
 }
-
-export default App;

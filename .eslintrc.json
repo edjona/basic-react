@@ -1,0 +1,48 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true,
+        "jest": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react","react-hooks"
+    ],
+    "rules": {
+        //Eslint rule for configuration
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "import/no-named-as-default": 0,
+        "eslint-disable-next-line import/named" : 0,
+        "linebreak-style": ["error", "windows"],
+
+        //eslint rule for max code lines
+        "max-lines-per-function": ["error", { "max": 50 }],
+        "max-depth": ["error", { "max":  2}],
+        "complexity": ["error", { "max": 5 }],
+
+        //Eslint rule for style
+        "react/jsx-props-no-spreading" : 0,
+        "object-curly-newline": ["error", {
+            "ObjectExpression": { "multiline": true, "minProperties": 7 },
+            "ObjectPattern": { "multiline": true, "minProperties": 7 },
+            "ImportDeclaration": { "multiline": true, "minProperties": 7 },
+            "ExportDeclaration": { "multiline": true, "minProperties": 7 }
+        }]
+    },
+    "parser": "babel-eslint"
+}
